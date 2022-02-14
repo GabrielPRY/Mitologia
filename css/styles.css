@@ -89,6 +89,9 @@ ol{
    
 }
 
+.menu{
+    height: inherit;
+}
 
 .mythology{
     display: flex;
@@ -162,6 +165,21 @@ margin: 0;
     vertical-align: middle;
 }
 
+.burger-button{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: black;
+    display: none;
+    line-height: 40px;
+    text-align: center;
+    position: fixed;
+    z-index: 4;
+    left: 5px;
+    top: 5px;
+    color: white;
+}
+
 @media screen and (max-width: 1023px) {
     .sectionTitle{
         margin-left: 0;
@@ -206,6 +224,7 @@ margin: 0;
     }
 
     .menu{
+        position: fixed;
         display: flex;
         background: gray;
         z-index: 3;
@@ -229,6 +248,10 @@ margin: 0;
 
     .articleImage{
         width: 100%;
+    }
+
+    .burger-button{
+        display: block;
     }
 }
 

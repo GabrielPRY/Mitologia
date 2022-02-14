@@ -20,19 +20,19 @@
                 <img src="images/logo.png" alt="logo" height="50px" class="logo">
             </figure>
             <h1 class="headerTitle">Mitología Griega</h1>
-            <nav>
+            <nav class="menu">
                 <ol>
                     <li>
-                        <a href="#Dioses">Dioses</a>
+                        <a href="#Dioses" class="menuItem">Dioses</a>
                     </li>
                     <li>
-                        <a href="#Titanes">Titanes</a>
+                        <a href="#Titanes" class="menuItem">Titanes</a>
                     </li>
                     <li>
-                        <a href="#Heroes">Héroes</a>
+                        <a href="#Heroes" class="menuItem">Héroes</a>
                     </li>
                     <li>
-                        <a href="#Monstruos">Monstruos</a>
+                        <a href="#Monstruos" class="menuItem">Monstruos</a>
                     </li>
                 </ol>
             </nav>
@@ -297,6 +297,43 @@
             </div>
         </div>
     </footer>
+
+    <script>
+
+        const ipad = window.matchMedia('screen and (max-width: 767px)');
+
+        const menu = document.querySelector('.menu');
+
+        const burger = document.querySelector('.burger-button');
+
+        //TRAE TODOS LOS ELEMENTOS EN UN ARRAY QUE SON DE LA CLASE MENUITEM
+        const menuItem = document.querySelectorAll('.menuItem');
+
+        ipad.addListener(validator);
+
+        function validator(event) {
+            if (event.matches == true) {
+                burger.addEventListener('click', hideShow);
+                //recorre el array y activa el evento
+                menuItem.forEach(e => e.addEventListener('click',hideShow))
+            } else {
+                burger.removeEventListener('click', hideShow);
+                //recorre el array y remueve el evento
+                menuItem.forEach(e => e.removeEventListener('click',hideShow))
+            }
+        }
+
+        validator(ipad);
+
+        function hideShow() {
+            if (menu.classList.contains('is-active')) {
+                menu.classList.remove('is-active');
+            } else {
+                menu.classList.add('is-active');
+            }
+        }
+
+    </script>
 </body>
 
 </html>
